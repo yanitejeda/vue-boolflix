@@ -1,0 +1,71 @@
+.box-container{
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 10px 20px;
+
+    h1{
+        color: red;
+    }
+
+}
+
+
+.box-container-card{
+    margin: 0 auto;
+    max-width: 1200px; 
+    text-align: center;
+    background-color: black;
+    padding: 5px 20px;
+    color: white;
+    ul{
+        list-style: none;
+    }
+    h1{
+        text-align: left;
+    }
+
+    .flag-w{
+        width: 20px;
+    }
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tittle{
+    position: absolute;
+    margin: 0;
+    padding: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.44);
+    }
+
+    .box-img{
+        position: relative;
+    }
+
+    .hover-p{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0;
+    }
+.card-box{
+
+    &:hover{
+        .hover-p{
+            opacity: 1;
+        }
+    }
+}
+}
