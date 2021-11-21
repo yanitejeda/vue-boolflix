@@ -34,15 +34,11 @@
 
                 <div>
                   <i
-                    v-for="i in Math.floor(movie.vote_average / 2)"
-                    :key="i"
-                    class="fa solid fa-star"
+                    v-for="i in 5 "
+                    :key="`m-${movie.id}-${i}`"
+                    :class="i <= getStars(movie.vote_average) ? 'fa solid fa-star' : 'far fa-star'"
                   ></i>
-                  <i
-                    v-for="i in 5 - Math.floor(movie.vote_average / 2)"
-                    :key="i"
-                    class="far fa-star"
-                  ></i>
+                  
                 </div>
                 <div>
                   <h4>{{ movie.original_language }}</h4>
@@ -71,14 +67,9 @@
 
                 <div>
                   <i
-                    v-for="i in Math.floor(serie.vote_average / 2)"
-                    :key="i"
-                    class="fa solid fa-star"
-                  ></i>
-                  <i
-                    v-for="i in 5 - Math.floor(serie.vote_average / 2)"
-                    :key="i"
-                    class="far fa-star"
+                    v-for="i in 5"
+                    :key="`s-${serie.id}-${i}`"
+                    :class="i <= getStars(serie.vote_average) ? 'fa solid fa-star' : 'far fa-star'"
                   ></i>
                 </div>
 
@@ -108,7 +99,6 @@ export default {
 
   data() {
     return {
-      Object: [],
       apiKey: "ca7354ccd689f61ad128617804bd67af",
       apiUrl: "https://api.themoviedb.org/3",
       movies: [],
@@ -122,7 +112,14 @@ export default {
     };
   },
 
+  
+
   methods: {
+    getStars(vote){
+      return  Math.floor(vote / 2)
+
+    },
+
     imgBox(imgEnd) {
       const imgStart = "https://image.tmdb.org/t/p/";
       const imgSize = "w185";
@@ -169,6 +166,8 @@ export default {
     starC() {
       return Math.floor(this.movie.vote_average);
     },
+
+    
   },
 };
 </script>
